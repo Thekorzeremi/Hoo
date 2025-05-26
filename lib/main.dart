@@ -7,7 +7,31 @@ class HooApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: NavigationBar());
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: NavigationBar(),
+    );
+  }
+}
+
+class SearchBarApp extends StatefulWidget {
+  const SearchBarApp({super.key});
+
+  @override
+  State<SearchBarApp> createState() => _SearchBarAppState();
+}
+
+class _SearchBarAppState extends State<SearchBarApp> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+
+      child: SearchBar(
+        hintText: 'Rechercher...',
+        leading: const Icon(Icons.search),
+      ),
+    );
   }
 }
 
@@ -19,12 +43,15 @@ class NavigationBar extends StatefulWidget {
 }
 
 class _NavigationBarState extends State<NavigationBar> {
-   int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+  );
   static final List<Widget> _widgetOptions = <Widget>[
     ExploreTab(),
     BookingTab(),
-    ProfileTab()
+    ProfileTab(),
   ];
 
   void _onItemTapped(int index) {
@@ -40,7 +67,10 @@ class _NavigationBarState extends State<NavigationBar> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explorer'),
-          BottomNavigationBarItem(icon: Icon(Icons.hotel), label: 'Mes réservations'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.hotel),
+            label: 'Mes réservations',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.face), label: 'Mon profil'),
         ],
         currentIndex: _selectedIndex,
@@ -61,8 +91,49 @@ class ExploreTab extends StatefulWidget {
 class _ExploreTabState extends State<ExploreTab> {
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      "Explorer"
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [Expanded(child: SearchBarApp())],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              width: (MediaQuery.of(context).size.width) / 2,
+              padding: EdgeInsets.fromLTRB(16.0, 4.0, 4.0, 4.0),
+              decoration: BoxDecoration(
+                border: Border(right: BorderSide(color: Colors.grey)),
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    'Choisir date',
+                    style: TextStyle(fontSize: 10),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    '26/05/2025',
+                    style: TextStyle(fontSize: 14),
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: (MediaQuery.of(context).size.width) / 2,
+              padding: EdgeInsets.fromLTRB(4.0, 4.0, 16.0, 4.0),
+              child: Column(
+                children: [
+                  Text('Nombre de chambres', style: TextStyle(fontSize: 10)),
+                  Text('1 chambre - 2 adultes', style: TextStyle(fontSize: 14)),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -77,9 +148,7 @@ class BookingTab extends StatefulWidget {
 class _BookingTabState extends State<BookingTab> {
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      "Mes réservations"
-    );
+    return const Text("Mes réservations");
   }
 }
 
@@ -93,8 +162,6 @@ class ProfileTab extends StatefulWidget {
 class _ProfileTabState extends State<ProfileTab> {
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      "Mon profil"
-    );
+    return const Text("Mon profil");
   }
 }
