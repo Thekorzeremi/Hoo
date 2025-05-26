@@ -61,7 +61,9 @@ class ExploreTab extends StatefulWidget {
 class _ExploreTabState extends State<ExploreTab> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Text(
+      "Explorer"
+    );
   }
 }
 
@@ -75,7 +77,9 @@ class BookingTab extends StatefulWidget {
 class _BookingTabState extends State<BookingTab> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Text(
+      "Mes réservations"
+    );
   }
 }
 
@@ -89,6 +93,8 @@ class ProfileTab extends StatefulWidget {
 class _ProfileTabState extends State<ProfileTab> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Text(
+      "Mon profil"
+    );
   }
 }
