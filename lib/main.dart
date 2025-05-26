@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hoo/color.dart';
 
 void main() => runApp(const HooApp());
 
@@ -29,6 +30,8 @@ class _SearchBarAppState extends State<SearchBarApp> {
       child: SearchBar(
         hintText: 'Rechercher...',
         leading: const Icon(Icons.search),
+        elevation: const MaterialStatePropertyAll<double>(0.0),
+        backgroundColor: const MaterialStatePropertyAll<Color>(Color(0xffF7F2FA)),
       ),
     );
   }
@@ -70,7 +73,7 @@ class _NavigationBarState extends State<NavigationBar> {
           BottomNavigationBarItem(icon: Icon(Icons.face), label: 'Mon profil'),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.cyan[400],
+        selectedItemColor: AppColors.secondary,
         onTap: _onItemTapped,
       ),
     );
@@ -100,13 +103,6 @@ class _ExploreTabState extends State<ExploreTab> {
       controller: _scrollController,
       child: Column(
         children: [
-          Container(
-            margin: EdgeInsets.fromLTRB(0, 24, 0, 0),
-            child: Text(
-              "Où allez-vous partir ?",
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-            ),
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [Expanded(child: SearchBarApp())],
@@ -118,7 +114,7 @@ class _ExploreTabState extends State<ExploreTab> {
                 width: (MediaQuery.of(context).size.width) / 2,
                 padding: EdgeInsets.fromLTRB(16.0, 4.0, 4.0, 4.0),
                 decoration: BoxDecoration(
-                  border: Border(right: BorderSide(color: Colors.grey)),
+                  border: Border(right: BorderSide(color: Color.fromARGB(255, 210, 210, 210))),
                 ),
                 child: Column(
                   children: [
@@ -154,6 +150,7 @@ class _ExploreTabState extends State<ExploreTab> {
                 width: (MediaQuery.of(context).size.width) / 2,
                 padding: EdgeInsets.fromLTRB(4.0, 14.0, 16.0, 4.0),
                 child: Column(
+                  spacing: 10,
                   children: [
                     Text('Nombre de chambres', style: TextStyle(fontSize: 10)),
                     Text(
@@ -497,7 +494,7 @@ class _BookingTabState extends State<BookingTab> {
             padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
             child: Text(
               'Mes réservations',
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
           Container(
@@ -616,19 +613,17 @@ class _ProfileTabState extends State<ProfileTab> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            margin: EdgeInsets.fromLTRB(0, 24, 0, 0),
-            child: const Text(
-            "Mon profil",
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-          ),),
           const SizedBox(height: 32),
           CircleAvatar(
             radius: 48,
-            backgroundColor: Colors.cyan[400],
+            backgroundColor: AppColors.secondary,
             child: const Icon(Icons.person, size: 56, color: Colors.white),
           ),
           const SizedBox(height: 16),
+          const Text(
+            "Mon profil",
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 8),
           const Text(
             "Nom d'utilisateur",
@@ -648,7 +643,7 @@ class _ProfileTabState extends State<ProfileTab> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Text("Statut: Voyageur", style: TextStyle(fontSize: 16)),
-                    Icon(Icons.verified, color: Colors.cyan),
+                    Icon(Icons.verified, color: AppColors.secondary),
                   ],
                 ),
               ),
