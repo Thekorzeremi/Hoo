@@ -21,10 +21,10 @@ class NavigationBar extends StatefulWidget {
 class _NavigationBarState extends State<NavigationBar> {
    int _selectedIndex = 0;
   static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Index 0: Explorer', style: optionStyle),
-    Text('Index 1: Mes reservations', style: optionStyle),
-    Text('Index 2: Mon profil', style: optionStyle),
+  static final List<Widget> _widgetOptions = <Widget>[
+    ExploreTab(),
+    BookingTab(),
+    ProfileTab()
   ];
 
   void _onItemTapped(int index) {
@@ -48,5 +48,47 @@ class _NavigationBarState extends State<NavigationBar> {
         onTap: _onItemTapped,
       ),
     );
+  }
+}
+
+class ExploreTab extends StatefulWidget {
+  const ExploreTab({super.key});
+
+  @override
+  State<ExploreTab> createState() => _ExploreTabState();
+}
+
+class _ExploreTabState extends State<ExploreTab> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class BookingTab extends StatefulWidget {
+  const BookingTab({super.key});
+
+  @override
+  State<BookingTab> createState() => _BookingTabState();
+}
+
+class _BookingTabState extends State<BookingTab> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class ProfileTab extends StatefulWidget {
+  const ProfileTab({super.key});
+
+  @override
+  State<ProfileTab> createState() => _ProfileTabState();
+}
+
+class _ProfileTabState extends State<ProfileTab> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
