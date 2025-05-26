@@ -667,7 +667,7 @@ class _ProfileTabState extends State<ProfileTab> {
                   ),
                   _ProfileActionButton(
                     icon: Icons.face,
-                    label: 'Voir lf profil',
+                    label: 'Voir le profil',
                     onTap: () {},
                   ),
                   _ProfileActionButton(
