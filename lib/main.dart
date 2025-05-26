@@ -100,6 +100,13 @@ class _ExploreTabState extends State<ExploreTab> {
       controller: _scrollController,
       child: Column(
         children: [
+          Container(
+            margin: EdgeInsets.fromLTRB(0, 24, 0, 0),
+            child: Text(
+              "Où allez-vous partir ?",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [Expanded(child: SearchBarApp())],
