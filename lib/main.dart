@@ -30,7 +30,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
       child: SearchBar(
         hintText: 'Rechercher...',
         leading: const Icon(Icons.search),
-        elevation: const MaterialStatePropertyAll<double>(0.0),
+        elevation: const MaterialStatePropertyAll<double>(1),
         backgroundColor: const MaterialStatePropertyAll<Color>(Color(0xffF7F2FA)),
       ),
     );
