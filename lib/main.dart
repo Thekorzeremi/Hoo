@@ -104,7 +104,7 @@ class _ExploreTabState extends State<ExploreTab> {
             margin: EdgeInsets.fromLTRB(0, 24, 0, 0),
             child: Text(
               "Où allez-vous partir ?",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
           ),
           Row(
@@ -497,7 +497,7 @@ class _BookingTabState extends State<BookingTab> {
             padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
             child: Text(
               'Mes réservations',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
           ),
           Container(
@@ -616,6 +616,12 @@ class _ProfileTabState extends State<ProfileTab> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Container(
+            margin: EdgeInsets.fromLTRB(0, 24, 0, 0),
+            child: const Text(
+            "Mon profil",
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          ),),
           const SizedBox(height: 32),
           CircleAvatar(
             radius: 48,
@@ -623,10 +629,6 @@ class _ProfileTabState extends State<ProfileTab> {
             child: const Icon(Icons.person, size: 56, color: Colors.white),
           ),
           const SizedBox(height: 16),
-          const Text(
-            "Mon profil",
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-          ),
           const SizedBox(height: 8),
           const Text(
             "Nom d'utilisateur",
