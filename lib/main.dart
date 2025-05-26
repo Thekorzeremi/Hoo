@@ -43,10 +43,7 @@ class NavigationBar extends StatefulWidget {
 
 class _NavigationBarState extends State<NavigationBar> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.bold,
-  );
+
   static final List<Widget> _widgetOptions = <Widget>[
     ExploreTab(),
     BookingTab(),
@@ -608,6 +605,127 @@ class ProfileTab extends StatefulWidget {
 class _ProfileTabState extends State<ProfileTab> {
   @override
   Widget build(BuildContext context) {
-    return const Text("Mon profil");
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(height: 32),
+          CircleAvatar(
+            radius: 48,
+            backgroundColor: Colors.cyan[400],
+            child: const Icon(Icons.person, size: 56, color: Colors.white),
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            "Mon profil",
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          const Text(
+            "Nom d'utilisateur",
+            style: TextStyle(fontSize: 16, color: Colors.grey),
+          ),
+          const SizedBox(height: 24),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32.0),
+            child: Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text("Statut: Voyageur", style: TextStyle(fontSize: 16)),
+                    Icon(Icons.verified, color: Colors.cyan),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Card(
+              elevation: 1,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                children: [
+                  _ProfileActionButton(
+                    icon: Icons.settings,
+                    label: 'Paramètres du compte',
+                    onTap: () {},
+                  ),
+                  _ProfileActionButton(
+                    icon: Icons.help,
+                    label: 'Obtenir de l\'aide',
+                    onTap: () {},
+                  ),
+                  _ProfileActionButton(
+                    icon: Icons.face,
+                    label: 'Voir lf profil',
+                    onTap: () {},
+                  ),
+                  _ProfileActionButton(
+                    icon: Icons.privacy_tip,
+                    label: 'Confidentialité',
+                    onTap: () {},
+                  ),
+                  const Divider(),
+                  _ProfileActionButton(
+                    icon: Icons.handshake,
+                    label: 'Parrainer un hôte',
+                    onTap: () {},
+                  ),
+                  _ProfileActionButton(
+                    icon: Icons.people_alt,
+                    label: 'Trouver un co-hôte',
+                    onTap: () {},
+                  ),
+                  _ProfileActionButton(
+                    icon: Icons.policy,
+                    label: 'Juridique',
+                    onTap: () {},
+                  ),
+                  _ProfileActionButton(
+                    icon: Icons.logout,
+                    label: 'Déconnexion',
+                    onTap: () {},
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 32),
+        ],
+      ),
+    );
+  }
+}
+
+class _ProfileActionButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  const _ProfileActionButton({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon, color: Colors.black),
+      title: Text(label, style: TextStyle(color: Colors.black)),
+      onTap: onTap,
+      dense: true,
+      horizontalTitleGap: 12,
+    );
   }
 }
