@@ -145,7 +145,7 @@ class _ExploreTabState extends State<ExploreTab> {
               child: Column(
                 spacing: 10,
                 children: [
-                  Text('Nombre de chambres', style: TextStyle(fontSize: 10),),
+                  Text('Nombre de chambres', style: TextStyle(fontSize: 10)),
                   Text('1 chambre - 2 adultes', style: TextStyle(fontSize: 14)),
                 ],
               ),
@@ -359,7 +359,113 @@ class BookingTab extends StatefulWidget {
 class _BookingTabState extends State<BookingTab> {
   @override
   Widget build(BuildContext context) {
-    return const Text("Mes réservations");
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
+          child: Text(
+            'Mes réservations',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.all(16.0),
+          width: (MediaQuery.of(context).size.width),
+          height: 300,
+          child: Card(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 34,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Hotel 4* Bali',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(4.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Image.asset(
+                        'assets/hotel1.jpg',
+                        fit: BoxFit.cover,
+                        alignment: Alignment.center,
+                      ),
+                    ),
+                  ),
+                ),
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 25,
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 0),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Chambre - 2 adultes',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          height: 25,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                'Du 30/05/2025 au 06/06/2025',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 25,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                'Confirmé',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
 
